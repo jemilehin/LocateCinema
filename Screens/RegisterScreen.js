@@ -32,6 +32,8 @@ const RegisterScreen = ({ navigation }) => {
     const [selectedLanguage, setSelectedLanguage] = useState();
     const [countryShort,setCountryShort] = useState('')
     const [keyboardStatus, setKeyboardStatus] = useState('');
+    const [hidePasword,setHidePasword] = useState(true)
+    const [confirmHidePasword,setConfirmHidePasword] = useState(true)
 
     const callback = async(response) => {
         setIsLoading(false)
@@ -164,12 +166,16 @@ const RegisterScreen = ({ navigation }) => {
                         </View>
                         <CurvedTextInputs
                             placeholder={i18n.t("Password")}
+                            secureTextEntry={hidePasword}
+                            icon={<Ionicons onPress={() => setHidePasword(!hidePasword)} name={!hidePasword ? 'eye' : 'eye-off'} color='black' size={20} style={tw`my-auto`} />}
                             name='md-lock-open'
                             style={{ marginTop: 1 }}
                             onChangeText={(text) => setNewUser({...newUser,password: text })}
                         />
                         <CurvedTextInputs
                             // name='md-lock-open'
+                            secureTextEntry={confirmHidePasword}
+                            icon={<Ionicons onPress={() => setConfirmHidePasword(!confirmHidePasword)} name={!confirmHidePasword ? 'eye' : 'eye-off'} color='black' size={20} style={tw`my-auto`} />}
                             placeholder={i18n.t('Confirm password')}
                             style={{ marginTop: 2 }}
                             side='bottom'

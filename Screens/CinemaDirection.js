@@ -11,7 +11,7 @@ const CinemaDirection = ({ navigation, route }) => {
 
 
     const [location, setLocation] = useState()
-    const [cinema,setCinema] = useState(route.params.cinema)
+    const [cinema] = useState(route.params.cinema)
 
     const getLocation = async () => {
         let location = await AsyncStorage.getItem('geolocation')

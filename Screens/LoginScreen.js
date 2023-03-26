@@ -28,6 +28,7 @@ const LoginScreen = ({navigation}) => {
     const [keyboardStatus, setKeyboardStatus] = useState('');
     const [loginCredentials,setLoginCredentials] = useState({email: '', password: ''})
     const [isLoading, setIsLoading] = useState(false);
+    const [hidePasword,setHidePasword] = useState(true)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -118,23 +119,25 @@ const LoginScreen = ({navigation}) => {
                         />
                         <CurvedTextInputs
                             name='md-lock-open'
+                            secureTextEntry={hidePasword}
                             style={{marginTop: 2}}
                             side='bottom'
+                            icon={<Ionicons onPress={() => setHidePasword(!hidePasword)} name={!hidePasword ? 'eye' : 'eye-off'} color='black' size={20} style={tw`my-auto`} />}
                             onChangeText={(text) => setLoginCredentials({...loginCredentials,password: text })}
                         />
                     </View>
                     <View>
                     <Button
-                            element={TouchableOpacity}
-                            text={i18n.t('Submit')}
-                            size='md'
-                            color='white'
-                            weight='sm'
-                            style={[tw`mt-5 mx-auto `, { backgroundColor: 'rgba(55,52,52,1)' }]}
-                            textStyle={tw`text-center`}
-                            onPress={() => onLogin()}
-                            loading={isLoading}
-                        />
+                        element={TouchableOpacity}
+                        text={i18n.t('Submit')}
+                        size='md'
+                        color='white'
+                        weight='sm'
+                        style={[tw`mt-5 mx-auto `, { backgroundColor: 'rgba(55,52,52,1)' }]}
+                        textStyle={tw`text-center`}
+                        onPress={() => onLogin()}
+                        loading={isLoading}
+                    />
                     <FlexRow style={tw`mt-1 justify-center`}>
                         <TextView text={i18n.t('Already have an account?')}
                             style={tw`text-center pr-1`} size='sm' weight='xs'

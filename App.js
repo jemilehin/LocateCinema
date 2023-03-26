@@ -13,6 +13,7 @@ import { Provider, useSelector } from 'react-redux';
 import store from './ReduxEffect/store';
 import { Alert, Linking } from 'react-native';
 import CinemaDirection from './Screens/CinemaDirection';
+import CinemaShowtimes from './Screens/CinemaShowTimes';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
@@ -51,6 +52,7 @@ function StackComponent(){
         <Stack.Screen name='landingscreen' component={TabScreen} />
         <Stack.Screen name='cinemashowingmovie' component={DisplayCinemaShowingMovie} />
         <Stack.Screen name='cinemadirection' component={CinemaDirection} />
+        <Stack.Screen name='cinemashowtimes' component={CinemaShowtimes} />
 
       </Stack.Navigator> 
 
