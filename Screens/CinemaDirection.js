@@ -4,7 +4,8 @@ import tw from 'twrnc'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {GOOGLE_MAPS_APIKEY} from '@env'
+import { GOOGLE_MAPS_APIKEY } from '../config';
+
 
 
 const CinemaDirection = ({ navigation, route }) => {

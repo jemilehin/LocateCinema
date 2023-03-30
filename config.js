@@ -1,0 +1,7 @@
+export const BASEURL = 'https://api-gate2.movieglu.com/'
+export const CLIENT = 'KAPA'
+export const X_API_KEY = 'Bqj0a6pCtV7W5BB5QkmIWa0GPECG2FXeav0n36a9'
+export const AUTHOURIZATION = 'Basic S0FQQTpvNXA4ejRYOHE4bVg='
+export const API_VERSION = 'v200'
+export const LOCALURL = 'http://backend.locatecinema.com/api/auth/'
+export const GOOGLE_MAPS_APIKEY = 'AIzaSyC8YNvVgE9bLa-Xt2zqCQ4vI2G8XrreOEk'
