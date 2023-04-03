@@ -15,17 +15,17 @@ instance.interceptors.request.use(async config => {
   const territory = await AsyncStorage.getItem('country_short')
   let parseLocation = JSON.parse(location)
   config.headers = {
-      'client':'HOLA_0',
-      // 'client':CLIENT,
-      'x-api-key':	'snnjkqWVwr45JwJXqtFuo7yOKUtzgin43Fv7Xyo9',
-      'authorization':	'Basic SE9MQV8wX1hYOjVYWGRvTVMxR1RlWg==',
-      // 'x-api-key': X_API_KEY,
-      // 'authorization':AUTHOURIZATION,
-      // 'territory': JSON.stringify(territory),
-      territory:	'XX',
+      // 'client':'HOLA_0',
+      'client':CLIENT,
+      // 'x-api-key':	'snnjkqWVwr45JwJXqtFuo7yOKUtzgin43Fv7Xyo9',
+      // 'authorization':	'Basic SE9MQV8wX1hYOjVYWGRvTVMxR1RlWg==',
+      'x-api-key': X_API_KEY,
+      'authorization':AUTHOURIZATION,
+      'territory': JSON.stringify(territory),
+      // territory:	'XX',
       'api-version':API_VERSION,
-      // 'geolocation':  parseLocation.coords.latitude+';'+parseLocation.coords.longitude,
-      geolocation:	-22.0+';'+14.0,
+      'geolocation':  parseLocation.coords.latitude+';'+parseLocation.coords.longitude,
+      // geolocation:	-22.0+';'+14.0,
       'device-datetime':deviceTime,
   }
   return config

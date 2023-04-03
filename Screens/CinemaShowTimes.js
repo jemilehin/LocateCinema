@@ -7,7 +7,7 @@ import { Image,SafeAreaView,View,Dimensions, ScrollView, Text,Modal } from 'reac
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';
 import Container from '../Component/Container';
-import { RequestCall } from '../Connection/RequestInstance';
+import { MoviegluRequestCall } from '../Connection/RequestInstance';
 import ListCinemaSingle from '../Component/list/ListCinemaSingle';
 import FlexRow from '../Component/Layout/FlexRow';
 
@@ -30,7 +30,7 @@ const CinemaShowtimes = ({ navigation, route }) => {
 
     let currentTime = moment().format('YYYY-MM-DD')
     useEffect(() => {
-        RequestCall('single',`cinemaShowTimes/?cinema_id=${route.params?.id}&date=${currentTime}`,setFilms,'films')
+        MoviegluRequestCall('single',`cinemaShowTimes/?cinema_id=${route.params?.id}&date=${currentTime}`,setFilms,'films')
     },[])
 
     const DisplayTimeAndDate = () => {

@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as Location from 'expo-location';
+import { I18n } from "i18n-js";
 import HomeScreen from './Screens/HomeScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import DisplayCinemaShowingMovie from './Screens/CinemaShowingMovie';
@@ -11,14 +12,31 @@ import RegisterScreen from './Screens/RegisterScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Provider, useSelector } from 'react-redux';
 import store from './ReduxEffect/store';
-import { Alert, Linking } from 'react-native';
+import { Alert, Linking, Settings } from 'react-native';
 import CinemaDirection from './Screens/CinemaDirection';
 import CinemaShowtimes from './Screens/CinemaShowTimes';
+import SettingsScreen from './Screens/Settings';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import EditAccountScreen from './Screens/EditAccountScreen';
+import ChangePasswordScreen from './Screens/ChangePassword';
+import ForgotPasswordScreen from './Screens/ForgetPassword';
+import SelectLanguageScreen from './Screens/SelectLanguage';
+
+import { de, en, fr, es, ind } from './assets/Localization/languages';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
 
 const TabScreen = () => {
+  const currentLanguage = useSelector((state) => state.reducers.language)
+  const [language, setLanguage] = useState(currentLanguage)
+  const i18n = new I18n({ ...en, ...de, ...fr, ...es, ...ind })
+  i18n.defaultLocale = language
+  i18n.locale = language
+
+  useEffect(() =>{
+    setLanguage(currentLanguage)
+  },[currentLanguage])
   return(
     <Tab.Navigator initialRouteName='home' 
       screenOptions={{
@@ -28,10 +46,18 @@ const TabScreen = () => {
     >
       <Tab.Screen name='home' component={HomeScreen}
       options={{
-        tabBarLabel: 'Home',
-        // tabBarIcon: ({ color, size }) => (
-        //   <MaterialCommunityIcons name="home" color={color} size={size} />
-        // ),
+        tabBarLabel: i18n.t('Home'),
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={color} size={size} />
+        ),
+      }}
+      />
+      <Tab.Screen name='settings' component={SettingsScreen}
+      options={{
+        tabBarLabel: i18n.t('More'),
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="apps" color={color} size={size} />
+        ),
       }}
       />
     </Tab.Navigator>
@@ -53,6 +79,8 @@ function StackComponent(){
         <Stack.Screen name='cinemashowingmovie' component={DisplayCinemaShowingMovie} />
         <Stack.Screen name='cinemadirection' component={CinemaDirection} />
         <Stack.Screen name='cinemashowtimes' component={CinemaShowtimes} />
+        <Stack.Screen name='edit_account' component={EditAccountScreen} />
+        <Stack.Screen name='select_language' component={SelectLanguageScreen} />
 
       </Stack.Navigator> 
 
@@ -72,6 +100,8 @@ function StackComponent(){
           name='login'
           component={LoginScreen} 
         />
+        <Stack.Screen name='forgot_password' component={ForgotPasswordScreen} />
+        <Stack.Screen name='change_password' component={ChangePasswordScreen} />
       </Stack.Navigator>
       }
     </NavigationContainer>

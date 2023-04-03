@@ -26,7 +26,20 @@ export const de = {
     "No cinema is close or in your location":"Kein Kino ist in der Nähe oder an Ihrem Standort.",
     "Showing Dates": "Termine anzeigen",
     "Showing Times": "Zeiten anzeigen",
-    "Click on a movie and get showing dates and time": "Klicken Sie auf einen Film und lassen\nSie sich Datum und Uhrzeit anzeigen"
+    "Click on a movie and get showing dates and time": "Klicken Sie auf einen Film und lassen\nSie sich Datum und Uhrzeit anzeigen",
+    "Select Language": "Sprache auswählen",
+    "Are you sure you want to change language?": "Möchten Sie die Sprache wirklich ändern?",
+    "Cancel": "Stornieren",
+    "Confirm": "Bestätigen",
+    "More Actions": "Mehr Aktionen",
+    "Edit Account": "Konto bearbeiten",
+    "Language": "Sprache",
+    "Logout": "Ausloggen",
+    "Profile": "Profil",
+    "Country": "Land",
+    "Update": "Aktualisieren",
+    "Home": "Heim",
+    "More": "Mehr"
 }
 }
 
@@ -58,7 +71,20 @@ export const en = {
         "No cinema is close or in your location": "No cinema is close or in your location.",
         "Showing Dates": "Showing Dates",
         "Showing Times": "Showing Times",
-        "Click on a movie and get showing dates and time": "Click on a movie and get showing dates and time"
+        "Click on a movie and get showing dates and time": "Click on a movie and get showing dates and time",
+        "Select Language": "Select Language",
+        "Are you sure you want to change language?": "Are you sure you want to change language?",
+        "Cancel": "Cancel",
+        "Confirm": "Confirm",
+        "More Actions": "More Actions",
+        "Edit Account": "Edit Account",
+        "Language": "Language",
+        "Logout": "Logout",
+        "Profile": "Profile",
+        "Country": "Country",
+        "Update": "Update",
+        "Home": "Home",
+        "More": "More"
     }
 }
 
@@ -90,7 +116,20 @@ export const fr = {
         "No cinema is close or in your location":"Aucun cinéma n'est proche ou à votre emplacement.",
         "Showing Dates": "Affichage des dates",
         "Showing Times": "Heures d'affichage",
-        "Click on a movie and get showing dates and time": "Cliquez sur un film et affichez les\ndates et l'heure"
+        "Click on a movie and get showing dates and time": "Cliquez sur un film et affichez les\ndates et l'heure",
+        "Select Language": "Choisir la langue",
+        "Are you sure you want to change language?": "Voulez-vous vraiment changer de langue ?",
+        "Cancel": "Annuler",
+        "Confirm": "Confirmer",
+        "More Actions": "Plus d'actions",
+        "Edit Account": "Modifier le compte",
+        "Language": "Langue",
+        "Logout": "Se déconnecter",
+        "Profile": "Profil",
+        "Country": "les pays",
+        "Update": "Réviser",
+        "Home": "Maison",
+        "More": "Encore de"
     }
 }
 
@@ -122,7 +161,20 @@ export const es = {
         "No cinema is close or in your location": "No hay cine cerca o en tu ubicación.",
         "Showing Dates": "Mostrando fechas",
         "Showing Times": "Mostrando tiempos",
-        "Click on a movie and get showing dates and time": "Haga clic en una película y obtenga\nfechas y horas de exhibición"
+        "Click on a movie and get showing dates and time": "Haga clic en una película y obtenga\nfechas y horas de exhibición",
+        "Select Language": "Seleccione el idioma",
+        "Are you sure you want to change language?": "¿Seguro que quieres cambiar de idioma?",
+        "Cancel": "Cancelar",
+        "Confirm": "Confirmar",
+        "More Actions": "Mas acciones",
+        "Edit Account": "Editar cuenta",
+        "Language": "Idioma",
+        "Logout": "Cerrar sesión",
+        "Profile": "Perfil",
+        "Country": "el país",
+        "Update": "Actualizar",
+        "Home": "Hogar",
+        "More": "Más"
     }
 }
 
@@ -154,11 +206,24 @@ export const ind = {
         "No cinema is close or in your location": "Tidak ada bioskop yang dekat atau di lokasi Anda.",
         "Showing Dates": "Menampilkan Tanggal",
         "Showing Times": "Menampilkan Waktu",
-        "Click on a movie and get showing dates and time": "Klik film dan tampilkan tanggal dan waktu"
+        "Click on a movie and get showing dates and time": "Klik film dan tampilkan tanggal dan waktu",
+        "Select Language": "Pilih bahasa",
+        "Are you sure you want to change language?": "Apakah Anda yakin ingin mengubah bahasa?",
+        "Cancel": "Membatalkan",
+        "Confirm": "Mengonfirmasi",
+        "More Actions": "Lebih Banyak Tindakan",
+        "Edit Account": "Mengedit akun",
+        "Language": "Bahasa",
+        "Logout": "Keluar",
+        "Profile": "Profil",
+        "Country": "Negara",
+        "Update": "Memperbarui",
+        "Home": "Rumah",
+        "More": "Tambah lagi."
     }
 }
 
 
 export const language = [
-    'EN','DE','FR','ES','IN'
+    {short:'EN', full: 'English'},{short:'DE', full: 'German'},{short:'FR', full: 'French'},{short:'ES', full: 'Spanish'},{short:'IN', full: 'Indonisia'}
 ]

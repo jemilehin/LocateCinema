@@ -4,9 +4,9 @@ import { callback } from "./ResponseCallbacks/OkAndErrCalback";
 import axios from "axios";
 import { LOGIN_USER } from "../ReduxEffect/actionTypes";
 
-export const LoginRegisterRequest = (endpoint,request,callback,errcallback,dispatch) => {
+export const AppRequestCall = (endpoint,request,callback,errcallback,dispatch,type) => {
 
-    apiInstance.post(endpoint,request)
+    apiInstance[type](endpoint,type === 'get' ? null : request)
     .then(response => response.data)
     .then(data => {
         if(endpoint === 'login'){
@@ -19,7 +19,7 @@ export const LoginRegisterRequest = (endpoint,request,callback,errcallback,dispa
     .catch(err => errcallback(err))
 }
 
-export const RequestCall = (CallType,endpoint,setData,property) => {
+export const MoviegluRequestCall = (CallType,endpoint,setData,property) => {
     switch (CallType) {
         case 'single':
             api.get(endpoint)
@@ -41,7 +41,7 @@ export const RequestCall = (CallType,endpoint,setData,property) => {
                 
             )
             .catch(err => 
-                alert(`error: ${JSON.stringify(err)}\n url:${JSON.stringify(api.getUri())}`)
+                console.log(`error: ${JSON.stringify(err.message)}}`)
                 )
             break;
         default:
