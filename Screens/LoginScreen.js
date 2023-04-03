@@ -24,6 +24,10 @@ const LoginScreen = ({navigation}) => {
     i18n.defaultLocale = language
     i18n.locale = language
 
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
+
     
     const [keyboardStatus, setKeyboardStatus] = useState('');
     const [loginCredentials,setLoginCredentials] = useState({email: '', password: ''})
@@ -140,7 +144,7 @@ const LoginScreen = ({navigation}) => {
                     />
                     <View>
                     <FlexRow style={tw`mt-1 justify-center`}>
-                        <TextView text="Don't have an account?"
+                        <TextView text={i18n.t("Yet to have an account?")}
                             style={tw`text-center pr-1`} size='sm' weight='xs'
                         />
                         <TextView text={i18n.t(`Create Account`)}
@@ -161,7 +165,7 @@ const LoginScreen = ({navigation}) => {
                         <View style={[tw`w-1/3`,{height: 1, backgroundColor: "white"}]}><Text>hf</Text></View>
                     </FlexRow>
                     <FlexRow style={tw``}>
-                        <TextView text='Forgot Password'
+                        <TextView text={i18n.t('Forgot Password')}
                             style={[tw`text-center grow`,{color: 'rgba(121,182,243,1)'}]}
                             size='sm'
                             weight='xs'

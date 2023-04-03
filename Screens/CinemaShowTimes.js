@@ -23,10 +23,14 @@ const CinemaShowtimes = ({ navigation, route }) => {
     const [modalData,setModalData] = useState({})
     const selectLanguageFromRedux = useSelector((state) => state.reducers.language)
 
-    const [language] = useState(selectLanguageFromRedux)
+    const [language,setLanguage] = useState(selectLanguageFromRedux)
     const i18n = new I18n({...en, ...de, ...fr, ...es,...ind})
     i18n.defaultLocale = language
     i18n.locale = language
+
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
 
     let currentTime = moment().format('YYYY-MM-DD')
     useEffect(() => {

@@ -48,6 +48,10 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
         })
     }, [])
 
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
+
     return (
         <Container element={SafeAreaView}>
             <View style={tw``}>

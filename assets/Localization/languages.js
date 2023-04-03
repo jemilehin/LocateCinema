@@ -39,7 +39,18 @@ export const de = {
     "Country": "Land",
     "Update": "Aktualisieren",
     "Home": "Heim",
-    "More": "Mehr"
+    "More": "Mehr",
+    "Password Recovery": "Passwort-Wiederherstellung",
+    "Enter email": "Email eingeben",
+    "Token successfully recieved": "Token erfolgreich erhalten",
+    "Fields can't be empty": "Felder dürfen nicht leer sein",
+    "Password successfully reset to your new password.": "Passwort erfolgreich auf Ihr neues Passwort zurückgesetzt.",
+    "Change Password": "Kennwort ändern",
+    "New password": "Neues Kennwort",
+    "Confirm password": "Bestätige das Passwort",
+    "Password does not match": "Passwort stimmt nicht überein",
+    "Forgot Password": "Passwort vergessen",
+    "Yet to have an account?": "Habe noch ein Konto?"
 }
 }
 
@@ -84,7 +95,18 @@ export const en = {
         "Country": "Country",
         "Update": "Update",
         "Home": "Home",
-        "More": "More"
+        "More": "More",
+        "Password Recovery": "Password Recovery",
+        "Enter email": "Enter email",
+        "Token successfully recieved": "Token successfully recieved",
+        "Fields can't be empty": "Fields can't be empty",
+        "Password successfully reset to your new password.": "Password successfully reset to your new password.",
+        "Change Password": "Change Password",
+        "New password": "New password",
+        "Confirm password": "Confirm password",
+        "Password does not match": "Password does not match",
+        "Forgot Password": "Forgot Password",
+        "Yet to have an account?": "Yet to have an account?"
     }
 }
 
@@ -129,7 +151,18 @@ export const fr = {
         "Country": "les pays",
         "Update": "Réviser",
         "Home": "Maison",
-        "More": "Encore de"
+        "More": "Encore de",
+        "Password Recovery": "Récupération de mot de passe",
+        "Enter email": "Entrez l'e-mail",
+        "Token successfully recieved": "Jeton reçu avec succès",
+        "Fields can't be empty": "Les champs ne peuvent pas être vides",
+        "Password successfully reset to your new password.": "Mot de passe réinitialisé avec succès avec votre nouveau mot de passe.",
+        "Change Password": "Changer le mot de passe",
+        "New password": "Nouveau mot de passe",
+        "Confirm password": "Confirmez le mot de passe",
+        "Password does not match": "Le mot de passe ne correspond pas",
+        "Forgot Password": "Mot de passe oublié",
+        "Yet to have an account?": "Encore avoir un compte?"
     }
 }
 
@@ -174,7 +207,18 @@ export const es = {
         "Country": "el país",
         "Update": "Actualizar",
         "Home": "Hogar",
-        "More": "Más"
+        "More": "Más",
+        "Password Recovery": "Recuperación de contraseña",
+        "Enter email": "Ingrese correo electrónico",
+        "Token successfully recieved": "Token recibido con éxito",
+        "Fields can't be empty": "Los campos no pueden estar vacíos",
+        "Password successfully reset to your new password.": "Contraseña restablecida con éxito a su nueva contraseña.",
+        "Change Password": "Cambiar la contraseña",
+        "New password": "Nueva contraseña",
+        "Confirm password": "Confirmar Contraseña",
+        "Password does not match": "Las contraseñas no coinciden",
+        "Forgot Password": "Has olvidado tu contraseña",
+        "Yet to have an account?": "Sin embargo, para tener una cuenta?"
     }
 }
 
@@ -219,7 +263,18 @@ export const ind = {
         "Country": "Negara",
         "Update": "Memperbarui",
         "Home": "Rumah",
-        "More": "Tambah lagi."
+        "More": "Tambah lagi.",
+        "Password Recovery": "Pemulihan Kata Sandi",
+        "Enter email": "Masukan Surel",
+        "Token successfully recieved": "Token berhasil diterima",
+        "Fields can't be empty": "Kolom tidak boleh kosong",
+        "Password successfully reset to your new password.": "Kata sandi berhasil diatur ulang ke kata sandi baru Anda.",
+        "Change Password": "Ganti kata sandi",
+        "New password": "Kata sandi baru",
+        "Confirm password": "Konfirmasi sandi",
+        "Password does not match": "Kata sandi tidak cocok",
+        "Forgot Password": "Tidak ingat kata sandi",
+        "Yet to have an account?": "Belum punya akun?"
     }
 }
 

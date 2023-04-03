@@ -10,9 +10,11 @@ import { AppRequestCall } from "../Connection/RequestInstance"
 import FlexRow from "../Component/Layout/FlexRow";
 import CurvedTextInputs from "../Component/CurvedSquareInputs";
 import Button from "../Component/RoundedButton";
+import { de, en, fr, es, ind } from '../assets/Localization/languages';
 
 
 const ChangePasswordScreen = ({ navigation,route }) => {
+    const selectLanguageFromRedux = useSelector(state => state.reducers.language)
     const [isLoading, setIsLoading] = useState(false);
     const [newpassword, setNewPassword] = useState(null);
     // const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -20,9 +22,18 @@ const ChangePasswordScreen = ({ navigation,route }) => {
     const user = useSelector((state) => state.reducers.user)
     const [errMessage, setErrorMessage] = useState(false)
 
+    const [language, setLanguage] = useState(selectLanguageFromRedux)
+    const i18n = new I18n({ ...en, ...de, ...fr, ...es, ...ind })
+    i18n.defaultLocale = language
+    i18n.locale = language
+
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
+
     const UpdatePassword = () => {
         if (newpassword === null) {
-            alert("Fields can't be empty")
+            alert(i18n.t("Fields can't be empty"))
         } else {
             if(newpassword.password !== newpassword.password_confirmation){
                 setErrorMessage(true)
@@ -39,7 +50,7 @@ const ChangePasswordScreen = ({ navigation,route }) => {
         setIsLoading(false)
         setNewPassword(null)
         // setPasswordConfirmation('')
-        alert('Password successfully reset to your new password.')
+        alert(i18n.t('Password successfully reset to your new password.'))
         navigation.navigate('login')
     }
 
@@ -60,12 +71,12 @@ const ChangePasswordScreen = ({ navigation,route }) => {
                 <TextView
                     size="lg"
                     weight='md'
-                    text="Change Password"
+                    text={i18n.t("Change Password")}
                     style={tw`ml-3`}
                 />
             </FlexRow>
             <FlexRow direction={'flex-column'} style={tw` mt-12 flex-1`}>
-                <TextView text='One time token' />
+                {/* <TextView text='One time token' /> */}
                 <CurvedTextInputs
                     value={recoveryCredentials?.token.toString()}
                     editable={false}
@@ -78,7 +89,7 @@ const ChangePasswordScreen = ({ navigation,route }) => {
                 />
 
                 <CurvedTextInputs
-                    placeholder='New password'
+                    placeholder={i18n.t('New password')}
                     style={tw`mt-12`}
                     onChangeText={(text) => setNewPassword({ ...newpassword, password: text })}
                     onFocus={() => errMessage && setErrorMessage(!errMessage)}
@@ -86,18 +97,18 @@ const ChangePasswordScreen = ({ navigation,route }) => {
 
                 <View style={tw`w-full my-12`}>
                     <CurvedTextInputs
-                        placeholder='Confirm password'
+                        placeholder={i18n.t('Confirm password')}
                         style={tw``}
                         onChangeText={(text) => setNewPassword({...newpassword, password_confirmation: text})}
                         onBlur={() => newpassword.password !== newpassword.password_confirmation ? setErrorMessage(true) : setErrorMessage(false)}
                         onFocus={() => errMessage && setErrorMessage(!errMessage)}
                     />
-                    {!errMessage ? null : <TextView weight='xm' text="Password does not match" />}
+                    {!errMessage ? null : <TextView weight='xm' text={i18n.t("Password does not match")} />}
                 </View>
 
                 <Button
                     element={Pressable}
-                    text="Update"
+                    text={i18n.t("Update")}
                     size='md'
                     color='white'
                     weight='sm'
