@@ -8,7 +8,7 @@ import TextView from "../Component/TextView"
 import FlexRow from "../Component/Layout/FlexRow"
 import CurvedTextInputs from "../Component/CurvedSquareInputs"
 import { useState, useEffect } from "react"
-import { LoginRegisterRequest } from "../Connection/RequestInstance";
+import { AppRequestCall } from "../Connection/RequestInstance";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import {de, en,fr,es,ind} from '../assets/Localization/languages';
@@ -85,7 +85,7 @@ const RegisterScreen = ({ navigation }) => {
                         && emptyKey.length == 0
                     ){
                         setIsLoading(true)
-                        LoginRegisterRequest('register',newUser, callback,errcallback,null)
+                        AppRequestCall('register',newUser, callback,errcallback,null,'post')
                     }else alert('Password did not match')
                 }
             }else alert("all fields can't be empty")

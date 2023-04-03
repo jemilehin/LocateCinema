@@ -4,7 +4,7 @@ import { I18n } from "i18n-js";
 import { useSelector } from 'react-redux';
 import { View, ScrollView, Image, Dimensions, SafeAreaView } from "react-native";
 import Container from "../Component/Container"
-import { RequestCall } from "../Connection/RequestInstance";
+import { MoviegluRequestCall } from "../Connection/RequestInstance";
 import FlexRow from '../Component/Layout/FlexRow';
 import TextView from "../Component/TextView"
 import ListCinemaView from '../Component/list/ListCinemas';
@@ -44,7 +44,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
 
     useEffect(() => {
         navigation.addListener('focus', () => {
-            RequestCall('single', `closestShowing/?film_id=${route.params?.film.film_id}`, setCinemas, 'cinemas')
+            MoviegluRequestCall('single', `closestShowing/?film_id=${route.params?.film.film_id}`, setCinemas, 'cinemas')
         })
     }, [])
 
@@ -80,7 +80,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                         cAddress={cinema.address}
                         distance={cinema.distance}
                         date={cinema.date} time={cinema.time}
-                        onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
+                        // onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
                     />)) : null
                 }
             </ScrollView>

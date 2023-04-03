@@ -10,7 +10,6 @@ const ListCinemaSingle = (props) => {
             <Image
                 style={{resizeMode: "contain", width: 50, height: 50}}
                 source={props?.uri ? props?.img_source : {uri: props?.img_source}}
-
             />
             <View style={tw`w-4/5`}>
                 <TextView

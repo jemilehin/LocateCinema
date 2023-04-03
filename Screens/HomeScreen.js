@@ -4,7 +4,7 @@ import { I18n } from "i18n-js";
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { View, ScrollView, TextInput, Keyboard, Dimensions, RefreshControl,Text } from "react-native";
 import FlexRow from "../Component/Layout/FlexRow";
-import { RequestCall } from "../Connection/RequestInstance";
+import { MoviegluRequestCall } from "../Connection/RequestInstance";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CardImage from "../Component/ImageViewComponent/CardImage";
 import SearchInput from "../Component/SearchComponent/SearchInput";
@@ -48,7 +48,7 @@ const HomeScreen = ({ route, navigation }) => {
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
-        RequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
+        MoviegluRequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
             [setComingSoon, setCinemasClosest], ['films', 'cinemas'])
         setTimeout(() => {
             setRefreshing(false);
@@ -57,7 +57,7 @@ const HomeScreen = ({ route, navigation }) => {
 
     useEffect(() => {
         getLocation()
-        RequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
+        MoviegluRequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
             [setComingSoon, setCinemasClosest], ['films', 'cinemas'])
     }, [])
 
@@ -65,7 +65,7 @@ const HomeScreen = ({ route, navigation }) => {
         Keyboard.dismiss()
         if (search !== '') {
             setLoading(true)
-            RequestCall('single',`filmLiveSearch/?n=5&query=${search}`, setSearchResult, 'films')
+            MoviegluRequestCall('single',`filmLiveSearch/?n=5&query=${search}`, setSearchResult, 'films')
             setTimeout(() => setLoading(false), 1000)
         }
 
@@ -79,6 +79,10 @@ const HomeScreen = ({ route, navigation }) => {
     const ClearSearcResult = () => {
         setSearchResult([])
     }
+
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
 
     const change = (direction) => {
         const width = 302

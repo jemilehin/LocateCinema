@@ -1,4 +1,4 @@
-import { ImageBackground, TouchableOpacity, View, Keyboard } from "react-native"
+import { ImageBackground, TouchableOpacity, View, Keyboard, Text } from "react-native"
 import tw from 'twrnc'
 import { I18n } from "i18n-js";
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -7,7 +7,7 @@ import TextView from "../Component/TextView"
 import FlexRow from "../Component/Layout/FlexRow"
 import CurvedTextInputs from "../Component/CurvedSquareInputs"
 import { useState } from "react"
-import { LoginRegisterRequest } from "../Connection/RequestInstance"
+import { AppRequestCall } from "../Connection/RequestInstance"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useEffect } from "react"
 import { useDispatch,useSelector } from 'react-redux'
@@ -67,7 +67,7 @@ const LoginScreen = ({navigation}) => {
         let emptyKey = []
         if(loginCredentials.email !== '' && loginCredentials.password !== ''){
             setIsLoading(true)
-            LoginRegisterRequest('login',loginCredentials,callback,errcallback,dispatch)
+            AppRequestCall('login',loginCredentials,callback,errcallback,dispatch,'post')
         }else{
             for (const key in loginCredentials) {
                 if(loginCredentials[key] === ''){
@@ -138,8 +138,9 @@ const LoginScreen = ({navigation}) => {
                         onPress={() => onLogin()}
                         loading={isLoading}
                     />
+                    <View>
                     <FlexRow style={tw`mt-1 justify-center`}>
-                        <TextView text={i18n.t('Already have an account?')}
+                        <TextView text="Don't have an account?"
                             style={tw`text-center pr-1`} size='sm' weight='xs'
                         />
                         <TextView text={i18n.t(`Create Account`)}
@@ -149,6 +150,25 @@ const LoginScreen = ({navigation}) => {
                             onPress={() => navigation.navigate('register')}
                         />
                     </FlexRow>
+                    <FlexRow style={tw`justify-center`}>
+                        <View style={[tw`w-1/3`,{height: 1, backgroundColor: "white"}]}></View>
+                        <TextView text='Or'
+                            style={tw`text-center text-white mx-2`}
+                            size='sm'
+                            weight='xs'
+                            onPress={() => navigation.navigate('register')}
+                        />
+                        <View style={[tw`w-1/3`,{height: 1, backgroundColor: "white"}]}><Text>hf</Text></View>
+                    </FlexRow>
+                    <FlexRow style={tw``}>
+                        <TextView text='Forgot Password'
+                            style={[tw`text-center grow`,{color: 'rgba(121,182,243,1)'}]}
+                            size='sm'
+                            weight='xs'
+                            onPress={() => navigation.navigate('forgot_password')}
+                        />
+                    </FlexRow>
+                    </View>
                     </View>
                 </View>
             </View>
