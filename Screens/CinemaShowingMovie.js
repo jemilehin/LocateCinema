@@ -7,9 +7,25 @@ import Container from "../Component/Container"
 import { RequestCall } from "../Connection/RequestInstance";
 import FlexRow from '../Component/Layout/FlexRow';
 import TextView from "../Component/TextView"
-import ListCinemaView from '../Component/ListCinemas';
+import ListCinemaView from '../Component/list/ListCinemas';
 
-import {de, en,fr,es,ind} from '../assets/Localization/languages';
+import { de, en, fr, es, ind } from '../assets/Localization/languages';
+
+export const getImageUrl = (item, setData) => {
+    if (item.images?.hasOwnProperty('still')) {
+        if (Array.isArray(item.images?.still)) {
+            setData(true)
+        } else {
+            return item.images?.still["1"].medium.film_image
+        }
+    } else {
+        if (Array.isArray(item.images?.poster)) {
+            setData(true)
+        } else {
+            return item.images?.poster["1"].medium.film_image
+        }
+    }
+}
 
 let { width } = Dimensions.get('window')
 
@@ -17,43 +33,27 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
 
     const [cinemas, setCinemas] = useState([])
     const [film] = useState(route.params?.film || {})
-    const [isUri,setUri] = useState(false)
+    const [isUri, setUri] = useState(false)
 
     const selectLanguageFromRedux = useSelector((state) => state.reducers.language)
 
     const [language, setLanguage] = useState(selectLanguageFromRedux)
-    const i18n = new I18n({...en, ...de, ...fr, ...es,...ind})
+    const i18n = new I18n({ ...en, ...de, ...fr, ...es, ...ind })
     i18n.defaultLocale = language
     i18n.locale = language
 
     useEffect(() => {
         navigation.addListener('focus', () => {
-            RequestCall('single', 'closestshowing', `closestShowing/?film_id=${route.params?.film.film_id}`, null, setCinemas, 'cinemas')
+            RequestCall('single', `closestShowing/?film_id=${route.params?.film.film_id}`, setCinemas, 'cinemas')
         })
     }, [])
-
-    const getImageUrl = () => {
-            if (film.images?.hasOwnProperty('still')) {
-                if(Array.isArray(film.images?.still)){
-                    setUri(true)
-                }else{
-                    return film.images?.still["1"].medium.film_image
-                }
-            } else {
-                if(Array.isArray(film.images?.poster)){
-                    setUri(true)
-                }else {
-                    return film.images?.poster["1"].medium.film_image
-                }
-            }
-    }
 
     return (
         <Container element={SafeAreaView}>
             <View style={tw``}>
                 <Image
                     style={[tw`mb-2`, { width: width, resizeMode: film.images?.hasOwnProperty('still') ? 'cover' : 'contain', height: 200 }]}
-                    source={!isUri ? {uri: getImageUrl() } : require('../assets/error_image.jpg')}
+                    source={!isUri ? { uri: getImageUrl(film,setUri) } : require('../assets/error_image.jpg')}
                 />
                 <View style={tw`pt-1 px-2 bg-white`}>
                     <TextView
@@ -74,13 +74,13 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
             </View>
             <ScrollView style={tw`mt-6`}>
                 {
-                    cinemas.length > 0 ? cinemas.map((cinema,index) => (<ListCinemaView
+                    cinemas.length > 0 ? cinemas.map((cinema, index) => (<ListCinemaView
                         key={index}
                         cinemaName={cinema.cinema_name}
                         cAddress={cinema.address}
                         distance={cinema.distance}
                         date={cinema.date} time={cinema.time}
-                        onPress={() => navigation.navigate('cinemadirection', {cinema: cinema})}
+                        onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
                     />)) : null
                 }
             </ScrollView>

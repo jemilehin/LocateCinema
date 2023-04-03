@@ -22,7 +22,11 @@ export const de = {
     Title: "Titel",
     "Duration": "Dauer",
     "Age Rating": "Altersfreigabe",
-    "No data found from cloud": "Keine Daten aus der Cloud gefunden"
+    "No data found from cloud": "Keine Daten aus der Cloud gefunden",
+    "No cinema is close or in your location":"Kein Kino ist in der Nähe oder an Ihrem Standort.",
+    "Showing Dates": "Termine anzeigen",
+    "Showing Times": "Zeiten anzeigen",
+    "Click on a movie and get showing dates and time": "Klicken Sie auf einen Film und lassen\nSie sich Datum und Uhrzeit anzeigen"
 }
 }
 
@@ -50,7 +54,11 @@ export const en = {
         Title: "Title",
         "Duration": "Duration",
         "Age Rating": "Age Rating",
-        "No data found from cloud": "No data found from cloud"
+        "No data found from cloud": "No data found from cloud",
+        "No cinema is close or in your location": "No cinema is close or in your location.",
+        "Showing Dates": "Showing Dates",
+        "Showing Times": "Showing Times",
+        "Click on a movie and get showing dates and time": "Click on a movie and get showing dates and time"
     }
 }
 
@@ -79,6 +87,10 @@ export const fr = {
         "Duration": "Durée",
         "Age Rating": "Note d'âge",
         "No data found from cloud": "Aucune donnée trouvée dans le cloud",
+        "No cinema is close or in your location":"Aucun cinéma n'est proche ou à votre emplacement.",
+        "Showing Dates": "Affichage des dates",
+        "Showing Times": "Heures d'affichage",
+        "Click on a movie and get showing dates and time": "Cliquez sur un film et affichez les\ndates et l'heure"
     }
 }
 
@@ -107,6 +119,10 @@ export const es = {
         "Duration": "Duración",
         "Age Rating": "Clasificación\nde edad",
         "No data found from cloud": "No se encontraron datos de la nube",
+        "No cinema is close or in your location": "No hay cine cerca o en tu ubicación.",
+        "Showing Dates": "Mostrando fechas",
+        "Showing Times": "Mostrando tiempos",
+        "Click on a movie and get showing dates and time": "Haga clic en una película y obtenga\nfechas y horas de exhibición"
     }
 }
 
@@ -135,6 +151,10 @@ export const ind = {
         "Duration": "Durasi",
         "Age Rating": "Peringkat Usia",
         "No data found from cloud": "Tidak ada data yang ditemukan dari awan",
+        "No cinema is close or in your location": "Tidak ada bioskop yang dekat atau di lokasi Anda.",
+        "Showing Dates": "Menampilkan Tanggal",
+        "Showing Times": "Menampilkan Waktu",
+        "Click on a movie and get showing dates and time": "Klik film dan tampilkan tanggal dan waktu"
     }
 }
 
