@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOCALURL} from '@env'
+import { LOCALURL } from '../config';
 import store from '../ReduxEffect/store';
 
 const apiInstance = axios.create({

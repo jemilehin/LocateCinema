@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import moment from "moment/moment";
-import {BASEURL,CLIENT,API_VERSION,X_API_KEY,AUTHOURIZATION} from '@env'
+import { BASEURL, CLIENT, X_API_KEY,AUTHOURIZATION,API_VERSION } from '../config';
 
 let deviceTime = moment().format('yyyy-MM-DDThh:mm:ss.SSSZ')
 const URL = BASEURL

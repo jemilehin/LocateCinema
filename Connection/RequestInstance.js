@@ -40,7 +40,9 @@ export const RequestCall = (CallType,endpoint,setData,property) => {
                 )
                 
             )
-            .catch(err => console.log('err',err.message))
+            .catch(err => 
+                alert(`error: ${JSON.stringify(err)}\n url:${JSON.stringify(api.getUri())}`)
+                )
             break;
         default:
             break;
