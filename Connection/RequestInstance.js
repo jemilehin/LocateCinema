@@ -19,29 +19,37 @@ export const AppRequestCall = (endpoint,request,callback,errcallback,dispatch,ty
     .catch(err => errcallback(err))
 }
 
-export const MoviegluRequestCall = (CallType,endpoint,setData,property) => {
+export const MoviegluRequestCall = (CallType,endpoint,setData,property,setStatus) => {
     switch (CallType) {
         case 'single':
             api.get(endpoint)
             .then(response => response)
-            .then(data => callback(data,setData,data.status,property))
-            .catch(err => console.log(err.response))
+            .then(data => {
+                if(setStatus !== null)setStatus(false)
+                callback(data,setData,data.status,property)
+            })
+            .catch(err => {
+                if(setStatus !== null)setStatus(false)
+                console.log(err.response)})
             break;
         case 'multiple':
             axios.all(endpoint.map(url => api.get(url)))
             .then(
                 axios.spread((...data) =>{
+                    if(setStatus !== null)setStatus(false)
                     for (let i = 0; i <= property.length; i++){
                         if(data[i]['data'][property[i]] !== undefined){
                             setData[i](data[i]['data'][property[i]])
-                        }
+                        }else setData[i](data[i]['data'])
                     }
                 }
                 )
                 
             )
             .catch(err => 
-                console.log(`error: ${JSON.stringify(err.message)}}`)
+                {
+                    if(setStatus !== null)setStatus(false)
+                    console.log(`error: ${JSON.stringify(err.message)}}`)}
                 )
             break;
         default:

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CinemaMovie",
-    "slug": "CinemaMovie",
+    "name": "Locate Cinema",
+    "slug": "locatecinema",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/locate-icon.png",
