@@ -79,7 +79,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                     />
                     <FlexRow style={tw`my-1 pr-10`}>
                         <TextView
-                            text={`${i18n.t("Duration")}: ${filmFullDetails?.duration_mins !== undefined ? filmFullDetails?.duration_mins + " minutes" : "Not Available"} `} size='sm' weight='xs'
+                            text={`${i18n.t("Duration")}: ${filmFullDetails?.duration_mins !== undefined ? `${filmFullDetails?.duration_mins} ${i18n.t(" minutes")}` : `${i18n.t("Not Available")}`} `} size='sm' weight='xs'
                             style={tw`leading-4  text-white`}
                         />
                         <TextView
@@ -96,7 +96,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                         onPress={() => viewPage.current.setPage(0)}
                     >
                         <TextView
-                            text="Cinemas Showing"
+                            text={i18n.t("Cinemas Showing")}
                             style={tw`leading-4 text-center text-black`}
                         />
                     </TouchableOpacity>
@@ -110,7 +110,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                         onPress={() => viewPage.current.setPage(1)}
                     >
                         <TextView
-                            text="Movie Details"
+                            text={i18n.t("Movie Details")}
                             style={tw`leading-4 text-center text-black`}
                         />
                     </TouchableOpacity>
@@ -143,7 +143,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                     <ScrollView contentContainerStyle={{paddingBottom: 50}}>
                         <View style={tw`mt-6`}>
                             <TextView
-                                text="About Movie"
+                                text={i18n.t("About Movie")}
                                 size='md'
                                 weight='md'
                             />
@@ -156,7 +156,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                         <View style={tw`flex-row border-b pb-3  border-white`}>
                             <View style={tw`mt-6 w-1/2`}>
                                 <TextView
-                                    text="Movie Producers"
+                                    text={i18n.t("Movie Producers")}
                                     size='md'
                                     weight='md'
                                 />
@@ -168,7 +168,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                             </View>
                             <View style={tw`mt-6 w-1/2`}>
                                 <TextView
-                                    text="Movie Directors"
+                                    text={i18n.t("Movie Directors")}
                                     size='md'
                                     weight='md'
                                 />
