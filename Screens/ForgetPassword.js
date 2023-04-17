@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { I18n } from "i18n-js";
 import { useDispatch, useSelector } from 'react-redux'
 import tw from 'twrnc'
@@ -26,6 +26,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
     i18n.defaultLocale = language
     i18n.locale = language
 
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
+
     const onSubmitEmail = () => {
         setIsLoading(true)
         AppRequestCall('resetPassword',recoveryEmail,callback,errcallback,null,'post')
@@ -34,7 +38,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
     const callback = (response) => {
         setIsLoading(false)
         navigation.navigate('change_password', {token: response.token, email: recoveryEmail.email})
-        alert(JSON.stringify(`token successfully recieved: ${response.token}`))
+        alert(JSON.stringify(`${i18n.t('Token successfully recieved')}: ${response.token}`))
     }
 
     const errcallback = (err) => {
@@ -50,14 +54,14 @@ const ForgotPasswordScreen = ({ navigation }) => {
                 <TextView
                     size="xl"
                     weight='md'
-                    text='Password Recovery'
-                    style={tw`w-1/2`}
+                    text={i18n.t('Password Recovery')}
+                    style={tw`w-2/3`}
                 />
             </FlexRow>
 
             <View style={tw`flex-column my-auto`}>
                 <CurvedTextInputs
-                    placeholder='Enter email'
+                    placeholder={i18n.t('Enter email')}
                     style={tw``}
                     onChangeText={(text) => setRecoveryEmail({ ...recoveryEmail, email: text })}
                 />

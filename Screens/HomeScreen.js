@@ -17,6 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';
 import ListCinemaSingle from '../Component/list/ListCinemaSingle';
+import OnReadyComponent from '../Component/OnResponsDone';
 
 const HomeScreen = ({ route, navigation }) => {
     const [refreshing, setRefreshing] = useState(false);
@@ -31,6 +32,7 @@ const HomeScreen = ({ route, navigation }) => {
     const [location, setLocation] = useState()
     const user = useSelector((state) => state.reducers.user)
     const selectLanguageFromRedux = useSelector((state) => state.reducers.language)
+    const [status,setStatus] = useState(null)
 
     const [language, setLanguage] = useState(selectLanguageFromRedux)
     const i18n = new I18n({ ...en, ...de, ...fr, ...es, ...ind })
@@ -49,7 +51,7 @@ const HomeScreen = ({ route, navigation }) => {
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         MoviegluRequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
-            [setComingSoon, setCinemasClosest], ['films', 'cinemas'])
+            [setComingSoon, setCinemasClosest], ['films', 'cinemas'], setStatus)
         setTimeout(() => {
             setRefreshing(false);
         }, 2000);
@@ -58,14 +60,14 @@ const HomeScreen = ({ route, navigation }) => {
     useEffect(() => {
         getLocation()
         MoviegluRequestCall('multiple', ['filmsComingSoon/?n=5', 'cinemasNearby/?n=5'],
-            [setComingSoon, setCinemasClosest], ['films', 'cinemas'])
+            [setComingSoon, setCinemasClosest], ['films', 'cinemas'],setStatus)
     }, [])
 
     const SubmitSearch = () => {
         Keyboard.dismiss()
         if (search !== '') {
             setLoading(true)
-            MoviegluRequestCall('single',`filmLiveSearch/?n=5&query=${search}`, setSearchResult, 'films')
+            MoviegluRequestCall('single',`filmLiveSearch/?n=5&query=${search}`, setSearchResult, 'films',null)
             setTimeout(() => setLoading(false), 1000)
         }
 
@@ -137,7 +139,7 @@ const HomeScreen = ({ route, navigation }) => {
                         : null
                 }
             </View>
-
+            {comingSoon.length < 1 || cinemasClosest.length < 1 ? <OnReadyComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text="Error loading data" />}/> :<View>
             <View style={tw`mt-5 mb-1`}>
                 <TextView text={i18n.t(`Coming soon`)} size='md' />
                 <FlexRow style={tw`my-3`}>
@@ -190,6 +192,7 @@ const HomeScreen = ({ route, navigation }) => {
                     }
                 </View>
             </View>
+            </View>}
         </Container>
     )
 }

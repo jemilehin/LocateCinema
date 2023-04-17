@@ -29,6 +29,10 @@ const EditAccountScreen = ({navigation}) => {
     i18n.defaultLocale = language
     i18n.locale = language
 
+    useEffect(() =>{
+        setLanguage(selectLanguageFromRedux)
+    },[selectLanguageFromRedux])
+
     // useEffect(() => {
     //     AppRequestCall('user-profile',null,callback,errcallback,null,'get')
     // },[])

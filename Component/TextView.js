@@ -31,12 +31,12 @@ const TextView = (props) => {
         <Text
         {...props}
         
-            style={[{fontSize: textType(props.size), 
+            style={[{fontSize: textType(props?.size), 
                 color: props.color ? props.color : 'white',
-                fontWeight: fontWeight(props.weight)
-            },props.style]}
+                fontWeight: fontWeight(props?.weight)
+            },props?.style]}
         >
-            {props.text}
+            {props?.text}
         </Text>
     )
 }
