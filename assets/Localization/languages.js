@@ -50,7 +50,16 @@ export const de = {
     "Confirm password": "Bestätige das Passwort",
     "Password does not match": "Passwort stimmt nicht überein",
     "Forgot Password": "Passwort vergessen",
-    "Yet to have an account?": "Habe noch ein Konto?"
+    "Yet to have an account?": "Habe noch ein Konto?",
+    "Movie Producers": "Filmproducenten",
+    "Movie Directors": "Filmregisseurs",
+    "Triller": "Triller",
+    "Error loading data": "Fout bij het laden van gegevens",
+    "Cinemas Showing":"tonen",
+    "Movie Details":"Film details",
+    "Not Available": "Niet beschikbaar",
+    " minutes": "minuten",
+    "About Movie": "Over film"
 }
 }
 
@@ -106,7 +115,16 @@ export const en = {
         "Confirm password": "Confirm password",
         "Password does not match": "Password does not match",
         "Forgot Password": "Forgot Password",
-        "Yet to have an account?": "Yet to have an account?"
+        "Yet to have an account?": "Yet to have an account?",
+        "Movie Producers": "Movie Producers",
+        "Movie Directors": "Movie Directors",
+        "Triller": "Triller",
+        "Error loading data": "Error loading data",
+        "Cinemas Showing":"Cinemas Showing",
+        "Movie Details":"Movie Details",
+        "Not Available": "Not Available",
+        " minutes": "minutes",
+        "About Movie": "About Movie"
     }
 }
 
@@ -162,7 +180,16 @@ export const fr = {
         "Confirm password": "Confirmez le mot de passe",
         "Password does not match": "Le mot de passe ne correspond pas",
         "Forgot Password": "Mot de passe oublié",
-        "Yet to have an account?": "Encore avoir un compte?"
+        "Yet to have an account?": "Encore avoir un compte?",
+        "Movie Producers": "Producteurs de films",
+        "Movie Directors": "Réalisateurs de films",
+        "Triller": "Triller",
+        "Error loading data": "Erreur lors du chargement des données",
+        "Cinemas Showing":"montrant",
+        "Movie Details":"Détails du film",
+        "Not Available": "Pas disponible",
+        " minutes": "minutes",
+        "About Movie": "À propos du film"
     }
 }
 
@@ -218,7 +245,16 @@ export const es = {
         "Confirm password": "Confirmar Contraseña",
         "Password does not match": "Las contraseñas no coinciden",
         "Forgot Password": "Has olvidado tu contraseña",
-        "Yet to have an account?": "Sin embargo, para tener una cuenta?"
+        "Yet to have an account?": "Sin embargo, para tener una cuenta?",
+        "Movie Producers": "Productores de peliculas",
+        "Movie Directors": "Directores de cine",
+        "Triller": "Triller",
+        "Error loading data": "Error al cargar datos",
+        "Cinemas Showing":"de cines",
+        "Movie Details":"Detalles de la película",
+        "Not Available": "No disponible",
+        " minutes": "minutos",
+        "About Movie": "Acerca de la película"
     }
 }
 
@@ -274,7 +310,16 @@ export const ind = {
         "Confirm password": "Konfirmasi sandi",
         "Password does not match": "Kata sandi tidak cocok",
         "Forgot Password": "Tidak ingat kata sandi",
-        "Yet to have an account?": "Belum punya akun?"
+        "Yet to have an account?": "Belum punya akun?",
+        "Movie Producers": "Produser Film",
+        "Movie Directors": "Sutradara Film",
+        "Triller": "Triller",
+        "Error loading data": "Galat memuat data",
+        "Cinemas Showing":"Menampilkan",
+        "Movie Details":"Detail Film",
+        "Not Available": "Tidak tersedia",
+        " minutes": "menit",
+        "About Movie": "Tentang film"
     }
 }
 
