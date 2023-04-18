@@ -55,15 +55,13 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
         navigation.addListener('focus', () => {
             // MoviegluRequestCall('single', `closestShowing/?film_id=${route.params?.film.film_id}`, setCinemas, 'cinemas')
             MoviegluRequestCall('multiple', [`closestShowing/?film_id=${route.params?.film.film_id}`, `filmDetails/?film_id=${route.params?.film.film_id}`],
-                [setCinemas, setFillFullDetails], ['cinemas', {}],setStatus)
+                [setCinemas, setFillFullDetails], ['cinemas', 'null'],setStatus)
         })
     }, [])
 
     useEffect(() => {
         setLanguage(selectLanguageFromRedux)
     }, [selectLanguageFromRedux])
-
-    console.log(filmFullDetails)
 
     return (
         <Container element={SafeAreaView}>
@@ -135,7 +133,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                 distance={cinema.distance}
                                 date={cinema.date} time={cinema.time}
                             // onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
-                            />)) : null
+                            />)) : <OnReadyComponent status={status} children={<TextView text={i18n.t("Not Available")} />}  />
                         }
                     </ScrollView>
                 </View>
@@ -161,7 +159,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                     weight='md'
                                 />
                                 <View>
-                                    {filmFullDetails.producers === undefined ? <OnReadyComponent status={status} children={<TextView text="Not Available" />} /> : filmFullDetails.producers.map((producers, i) => (
+                                    {filmFullDetails.producers === undefined ? <OnReadyComponent status={status} children={<TextView text={i18n.t("Not Available")} />} /> : filmFullDetails.producers.map((producers, i) => (
                                         <TextView key={i} text={producers.producer_name} />
                                     ))}
                                 </View>

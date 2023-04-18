@@ -32,7 +32,7 @@ const HomeScreen = ({ route, navigation }) => {
     const [location, setLocation] = useState()
     const user = useSelector((state) => state.reducers.user)
     const selectLanguageFromRedux = useSelector((state) => state.reducers.language)
-    const [status,setStatus] = useState(null)
+    const [status,setStatus] = useState(true)
 
     const [language, setLanguage] = useState(selectLanguageFromRedux)
     const i18n = new I18n({ ...en, ...de, ...fr, ...es, ...ind })

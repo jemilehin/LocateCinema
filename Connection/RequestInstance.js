@@ -36,12 +36,16 @@ export const MoviegluRequestCall = (CallType,endpoint,setData,property,setStatus
             axios.all(endpoint.map(url => api.get(url)))
             .then(
                 axios.spread((...data) =>{
-                    if(setStatus !== null)setStatus(false)
-                    for (let i = 0; i <= property.length; i++){
-                        if(data[i]['data'][property[i]] !== undefined){
-                            setData[i](data[i]['data'][property[i]])
-                        }else setData[i](data[i]['data'])
+                    for (let i = 0; i < property.length; i++){
+                        if(property[i] !== 'null'){
+                            if(data[i]['data'][property[i]] !== undefined){
+                                setData[i](data[i]['data'][property[i]])
+                            }
+                        }else {
+                            setData[i](data[i]['data'])}
                     }
+
+                    if(setStatus !== null){setStatus(false)}
                 }
                 )
                 

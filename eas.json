@@ -3,18 +3,17 @@
     "version": ">= 3.3.2"
   },
   "build": {
-    "preview": {
+    "preview2": {
       "android": {
         "buildType": "apk"
       }
     },
-    "preview2": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease"
-      }
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
     },
-    "preview3": {
-      "developmentClient": true
+    "preview": {
+      "distribution": "internal"
     },
     "production": {}
   },
