@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import tw from 'twrnc'
 import { I18n } from "i18n-js";
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { View, ScrollView, TextInput, Keyboard, Dimensions, RefreshControl,Text } from "react-native";
+import { View, ScrollView, Keyboard, Dimensions, RefreshControl,Text } from "react-native";
 import FlexRow from "../Component/Layout/FlexRow";
 import { MoviegluRequestCall } from "../Connection/RequestInstance";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -17,7 +16,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';
 import ListCinemaSingle from '../Component/list/ListCinemaSingle';
-import OnReadyComponent from '../Component/OnResponsDone';
+import LoadingComponent from '../Component/LoadingComponent';
 
 const HomeScreen = ({ route, navigation }) => {
     const [refreshing, setRefreshing] = useState(false);
@@ -98,6 +97,8 @@ const HomeScreen = ({ route, navigation }) => {
         }
     }
 
+    // console.log(comingSoon,cinemasClosest)
+
     return (
         <Container element={ScrollView} refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -139,9 +140,9 @@ const HomeScreen = ({ route, navigation }) => {
                         : null
                 }
             </View>
-            {comingSoon.length < 1 || cinemasClosest.length < 1 ? <OnReadyComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />}/> :<View>
+            {comingSoon.length > 0 || cinemasClosest.length > 0 ? <View>
             <View style={tw`mt-5 mb-1`}>
-                <TextView text={i18n.t(`Coming soon`)} size='md' />
+                <TextView text={i18n.t(`Latest Movies`)} size='md' />
                 <FlexRow style={tw`my-3`}>
                     <MaterialCommunityIcons onPress={() => change('backward')} name='chevron-left' size={30} color='white' />
                     <ScrollView
@@ -192,7 +193,7 @@ const HomeScreen = ({ route, navigation }) => {
                     }
                 </View>
             </View>
-            </View>}
+            </View> : <LoadingComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />}/> }
         </Container>
     )
 }

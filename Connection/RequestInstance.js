@@ -1,15 +1,17 @@
 import api from "./movieBaseInstance";
 import apiInstance from "./mainInstance";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { callback } from "./ResponseCallbacks/OkAndErrCalback";
 import axios from "axios";
 import { LOGIN_USER } from "../ReduxEffect/actionTypes";
 
-export const AppRequestCall = (endpoint,request,callback,errcallback,dispatch,type) => {
+export const AppRequestCall =  (endpoint,request,callback,errcallback,dispatch,type) => {
 
     apiInstance[type](endpoint,type === 'get' ? null : request)
     .then(response => response.data)
-    .then(data => {
+    .then(async (data) => {
         if(endpoint === 'login'){
+            await AsyncStorage.multiSet([['token', data.access_token],['user', JSON.stringify(data.user)]])
             dispatch({type: LOGIN_USER, payload:{user: data.user, token: data.access_token}})
             callback(data)
         }else{

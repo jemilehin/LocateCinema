@@ -12,7 +12,8 @@ import TextView from "../Component/TextView"
 import ListCinemaView from '../Component/list/ListCinemas';
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';
-import OnReadyComponent from '../Component/OnResponsDone';
+import LoadingComponent from '../Component/LoadingComponent';
+import moment from 'moment';
 
 export const getImageUrl = (item, setData) => {
     if (item.images?.hasOwnProperty('still')) {
@@ -131,9 +132,9 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                 cinemaName={cinema.cinema_name}
                                 cAddress={cinema.address}
                                 distance={cinema.distance}
-                                date={cinema.date} time={cinema.time}
+                                date={moment(cinema.date).format("dddd, MMMM Do YYYY")} time={cinema.time}
                             // onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
-                            />)) : <OnReadyComponent status={status} children={<TextView text={i18n.t("Not Available")} />}  />
+                            />)) : <LoadingComponent status={status} children={<TextView text={i18n.t("Not Available")} />}  />
                         }
                     </ScrollView>
                 </View>
@@ -159,7 +160,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                     weight='md'
                                 />
                                 <View>
-                                    {filmFullDetails.producers === undefined ? <OnReadyComponent status={status} children={<TextView text={i18n.t("Not Available")} />} /> : filmFullDetails.producers.map((producers, i) => (
+                                    {filmFullDetails.producers === undefined ? <LoadingComponent status={status} children={<TextView text={i18n.t("Not Available")} />} /> : filmFullDetails.producers.map((producers, i) => (
                                         <TextView key={i} text={producers.producer_name} />
                                     ))}
                                 </View>
@@ -173,7 +174,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                 <View>
                                     {filmFullDetails.directors !== undefined ? filmFullDetails.directors.map((director, i) => (
                                         <TextView key={i} text={director.director_name} />
-                                    )) : <OnReadyComponent status={status} children={<TextView text="Not Available" />} />}
+                                    )) : <LoadingComponent status={status} children={<TextView text="Not Available" />} />}
                                 </View>
                             </View>
                         </View>
@@ -194,7 +195,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                     resizeMode={ResizeMode.CONTAIN}
                                     isLooping
                                     onPlaybackStatusUpdate={status => setVideoStatus(() => status)}
-                                /> : <OnReadyComponent status={status} children={<Image source={require('../assets/error_image.jpg')} style={{width: width, height: 200}}/>} />
+                                /> : <LoadingComponent status={status} children={<Image source={require('../assets/error_image.jpg')} style={{width: width, height: 200}}/>} />
                                 }
                             </View>
                         </View>
