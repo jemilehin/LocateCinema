@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import tw from 'twrnc'
 import { I18n } from "i18n-js";
 import { useSelector } from 'react-redux';
-import moment from "moment/moment";
+import moment from "moment";
 import { Image,SafeAreaView,View,Dimensions, ScrollView, Text,Modal } from 'react-native';
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';

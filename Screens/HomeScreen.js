@@ -139,7 +139,7 @@ const HomeScreen = ({ route, navigation }) => {
                         : null
                 }
             </View>
-            {comingSoon.length < 1 || cinemasClosest.length < 1 ? <OnReadyComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />}/> :<View>
+            {comingSoon.length < 1 && cinemasClosest.length < 1 ? <OnReadyComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />}/> :<View>
             <View style={tw`mt-5 mb-1`}>
                 <TextView text={i18n.t(`Coming soon`)} size='md' />
                 <FlexRow style={tw`my-3`}>
