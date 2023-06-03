@@ -34,7 +34,8 @@ const CinemaShowtimes = ({ navigation, route }) => {
 
     let currentTime = moment().format('YYYY-MM-DD')
     useEffect(() => {
-        MoviegluRequestCall('single',`cinemaShowTimes/?cinema_id=${route.params?.id}&date=${currentTime}`,setFilms,'films')
+        MoviegluRequestCall('single',`cinemaShowTimes/?cinema_id=${route.params?.id}&date=${currentTime}`,setFilms,
+        )
     },[])
 
     const DisplayTimeAndDate = () => {
@@ -57,7 +58,7 @@ const CinemaShowtimes = ({ navigation, route }) => {
                     <Text style={tw`text-white text-base font-bold my-4`}>{i18n.t('Showing Dates')}</Text>
                     <View style={tw`flex flex-wrap flex-row`}>
                         {film[modalData]?.show_dates.map((day,i)=> 
-                            (<Text key={i} style={tw`bg-white p-2 border mx-2 my-2 rounded-lg w-2/5`}>{day.date}</Text>)
+                            (<Text key={i} style={tw`bg-white p-2 border mx-2 my-2 rounded-lg w-2/5`}>{moment(day.date).format('Do, MMM YYYY')}</Text>)
                         )}
                     </View>
                 </View>
@@ -77,8 +78,6 @@ const CinemaShowtimes = ({ navigation, route }) => {
         )
     }
 
-
-
     return(
         <Container element={SafeAreaView}>
             <View style={tw`mb-2`}>
@@ -89,7 +88,7 @@ const CinemaShowtimes = ({ navigation, route }) => {
             </View>
             <DisplayTimeAndDate />
             <TextView size="lg" text={`${route.params?.cinema_name}`} />
-            <TextView text={i18n.t("Click on a movie and get showing dates and time")} />
+            {film.length > 0 ?<TextView text={i18n.t("Click on a movie and get showing dates and time")} /> : null}
             <ScrollView style={tw`mt-6`}>
                 {
                     film.length > 0 ? film.map((item,index) => (
@@ -106,7 +105,7 @@ const CinemaShowtimes = ({ navigation, route }) => {
                             }
                             uri={true}
                         />
-                    )) : null
+                    )) : <TextView text={i18n.t('No data found from cloud')} />
                 }
             </ScrollView>
         </Container>

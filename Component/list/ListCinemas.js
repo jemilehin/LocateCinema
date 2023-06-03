@@ -12,11 +12,11 @@ const ListCinemaView = (props) => {
         />
         <FlexRow>
             <TextView
-                text={`Date: ${props?.date}`} size='md' weight='xs'
+                text={`Date: ${props?.date}`} size='sm' weight='xs'
                 style={tw`leading-4 mr-3 my-1`}
             />
             <TextView
-                text={`Time: ${props?.time}(GMT)`} size='md' weight='xs'
+                text={`Time: ${props?.time}(GMT)`} size='sm' weight='xs'
                 style={tw`leading-4`}
             />
         </FlexRow>

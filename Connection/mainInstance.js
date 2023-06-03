@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { LOCALURL } from '../config';
+import { LOCALURL } from '../assets/configCredentials';
 import store from '../ReduxEffect/store';
 
 const apiInstance = axios.create({
-  baseURL: LOCALURL, timeout: 3000,
+  baseURL: LOCALURL
 });
 
 apiInstance.interceptors.request.use( (config) => {

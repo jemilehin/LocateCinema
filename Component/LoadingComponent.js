@@ -1,7 +1,7 @@
 import { ActivityIndicator, View } from "react-native"
 import tw from 'twrnc'
 
-const OnReadyComponent = (props) => {
+const LoadingComponent = (props) => {
     return(
         <View style={tw`w-full`}>
             {props?.status ? <ActivityIndicator color={"white"} size={30} /> : props?.children}
@@ -9,4 +9,4 @@ const OnReadyComponent = (props) => {
     )
 }
 
-export default OnReadyComponent
+export default LoadingComponent
