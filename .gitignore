@@ -13,4 +13,5 @@ web-build/
 # macOS
 .DS_Store
 .env
-config.js
+#configCredentials.js
+eas.json

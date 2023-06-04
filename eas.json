@@ -18,6 +18,12 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "locatecinema13@gmail.com",
+        "ascAppId": "6449723725",
+        "appleTeamId": "7Z8QYFL4H3"
+      }
+    }
   }
 }

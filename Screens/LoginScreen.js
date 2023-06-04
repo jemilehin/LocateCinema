@@ -8,7 +8,6 @@ import FlexRow from "../Component/Layout/FlexRow"
 import CurvedTextInputs from "../Component/CurvedSquareInputs"
 import { useState } from "react"
 import { AppRequestCall } from "../Connection/RequestInstance"
-import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useEffect } from "react"
 import { useDispatch,useSelector } from 'react-redux'
 

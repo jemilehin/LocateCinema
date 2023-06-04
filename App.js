@@ -2,6 +2,8 @@ import {useState,useEffect} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { LOGIN_USER } from './ReduxEffect/actionTypes';
 import * as Location from 'expo-location';
 import { I18n } from "i18n-js";
 import HomeScreen from './Screens/HomeScreen';
@@ -9,8 +11,7 @@ import WelcomeScreen from './Screens/WelcomeScreen';
 import DisplayCinemaShowingMovie from './Screens/CinemaShowingMovie';
 import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Provider, useSelector } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './ReduxEffect/store';
 import { Alert, Linking, Settings } from 'react-native';
 import CinemaDirection from './Screens/CinemaDirection';
@@ -66,6 +67,23 @@ const TabScreen = () => {
 
 function StackComponent(){
   const isToken = useSelector((state) => state.reducers.token)
+  const dispatch = useDispatch()
+
+  const IsTokenInLocalStorage = async () => {
+    const token = await AsyncStorage.getItem('token')
+    const user = await AsyncStorage.getItem('user')
+    try {
+      if(token !== null) {
+        dispatch({type: LOGIN_USER, payload:{user: JSON.parse(user), token: token}})
+      }
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  useEffect(() => {
+    IsTokenInLocalStorage()
+  },[])
 
   return(
     <NavigationContainer>

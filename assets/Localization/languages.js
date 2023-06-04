@@ -59,7 +59,9 @@ export const de = {
     "Movie Details":"Film details",
     "Not Available": "Niet beschikbaar",
     " minutes": "minuten",
-    "About Movie": "Over film"
+    "About Movie": "Over film",
+    "Latest Movies": "Neueste Filme",
+    "Request for account deletion contact:": "Kontakt zur Anfrage zur Kontolöschung"
 }
 }
 
@@ -124,7 +126,9 @@ export const en = {
         "Movie Details":"Movie Details",
         "Not Available": "Not Available",
         " minutes": "minutes",
-        "About Movie": "About Movie"
+        "About Movie": "About Movie",
+        "Latest Movies": "Latest Movies",
+        "Request for account deletion contact:": "Request for account deletion contact"
     }
 }
 
@@ -189,7 +193,9 @@ export const fr = {
         "Movie Details":"Détails du film",
         "Not Available": "Pas disponible",
         " minutes": "minutes",
-        "About Movie": "À propos du film"
+        "About Movie": "À propos du film",
+        "Latest Movies": "Derniers films",
+        "Request for account deletion contact:": "Solicitud de contacto de eliminación de cuenta"
     }
 }
 
@@ -254,7 +260,9 @@ export const es = {
         "Movie Details":"Detalles de la película",
         "Not Available": "No disponible",
         " minutes": "minutos",
-        "About Movie": "Acerca de la película"
+        "About Movie": "Acerca de la película",
+        "Latest Movies": "Últimas películas",
+        "Request for account deletion contact:": "Solicitud de contacto de eliminación de cuenta"
     }
 }
 
@@ -319,7 +327,9 @@ export const ind = {
         "Movie Details":"Detail Film",
         "Not Available": "Tidak tersedia",
         " minutes": "menit",
-        "About Movie": "Tentang film"
+        "About Movie": "Tentang film",
+        "Latest Movies": "Film Terbaru",
+        "Request for account deletion contact:": "Permintaan kontak penghapusan akun"
     }
 }
 

@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { I18n } from "i18n-js";
 import { useDispatch, useSelector } from 'react-redux'
 import tw from 'twrnc'
@@ -12,7 +13,6 @@ import { LOGOUTUSER } from "../ReduxEffect/actions";
 
 const SettingsScreen = ({ navigation }) => {
     const selectLanguageFromRedux = useSelector(state => state.reducers.language)
-    const [comp, setComp] = useState()
     const dispatch = useDispatch()
 
     const [language, setLanguage] = useState(selectLanguageFromRedux)
@@ -37,6 +37,11 @@ const SettingsScreen = ({ navigation }) => {
     useEffect(() =>{
         setLanguage(selectLanguageFromRedux)
     },[selectLanguageFromRedux])
+
+    const Logout = async () => {
+        await AsyncStorage.multiRemove(['user','token'])
+        dispatch(LOGOUTUSER)
+    }
 
 
     return (
@@ -66,9 +71,23 @@ const SettingsScreen = ({ navigation }) => {
                     style={tw`border-b border-white py-4 bg-neutral-600`}
                     text={i18n.t('Logout')}
                     size="md"
-                    onPress={() => dispatch(LOGOUTUSER)}
+                    onPress={() => Logout()}
                 />
             </ScrollView>
+            <View style={tw`p-3`}>
+                <TextView
+                    size="sm"
+                    weight='xs'
+                    text={i18n.t('Request for account deletion contact:')}
+                    style={tw`text-center`}
+                />
+                <TextView
+                    size="sm"
+                    weight='xs'
+                    text={"support@locatecinema.com"}
+                    style={tw`text-center`}
+                />
+            </View>
         </Container>
     )
 }
