@@ -79,8 +79,6 @@ function StackComponent(){
     } catch(e) {
       // error reading value
     }
-
-    console.log(token,user)
   }
 
   useEffect(() => {

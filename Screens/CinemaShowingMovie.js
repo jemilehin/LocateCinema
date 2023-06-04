@@ -45,6 +45,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
     const [videoStatus, setVideoStatus] = useState({});
     const [status,setStatus] = useState(true)
 
+
     const selectLanguageFromRedux = useSelector((state) => state.reducers.language)
 
     const [language, setLanguage] = useState(selectLanguageFromRedux)

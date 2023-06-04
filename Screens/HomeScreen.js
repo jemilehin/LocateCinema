@@ -13,6 +13,7 @@ import TextView from "../Component/TextView"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import OnReadyComponent from '../Component/OnResponsDone';
 
 import { de, en, fr, es, ind } from '../assets/Localization/languages';
 import ListCinemaSingle from '../Component/list/ListCinemaSingle';
@@ -193,7 +194,9 @@ const HomeScreen = ({ route, navigation }) => {
                     }
                 </View>
             </View>
-            </View> : <LoadingComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />}/> }
+            </View>
+            }
+            {/* <LoadingComponent status={status} children={<TextView style={tw`my-auto mx-auto`} text={i18n.t("Error loading data")} />} /> */}
         </Container>
     )
 }

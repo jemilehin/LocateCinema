@@ -32,7 +32,7 @@ const dev = {
   'territory':	'XX',
   'geolocation':	-22.0+';'+14.0,
 }
-  config.headers = {...dev,
+  config.headers = {...production,
       'api-version':API_VERSION,
       'device-datetime':deviceTime,
   }
