@@ -134,7 +134,7 @@ const DisplayCinemaShowingMovie = ({ navigation, route }) => {
                                 cAddress={cinema.address}
                                 distance={cinema.distance}
                                 date={moment(cinema.date).format("dddd, MMMM Do YYYY")} time={cinema.time}
-                            // onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
+                                onPress={() => navigation.navigate('cinemadirection', { cinema: cinema })}
                             />)) : <LoadingComponent status={status} children={<TextView text={i18n.t("Not Available")} />}  />
                         }
                     </ScrollView>

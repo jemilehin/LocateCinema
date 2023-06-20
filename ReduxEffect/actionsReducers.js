@@ -15,6 +15,8 @@ export const reducers = (state = initialState,action) => {
             return {...state, token: null}
         case CHANGE_LANAGUGAGE:
             return {...state, language: action.payload.language}
+        case 'DELETE_USER':
+            return {user:action.payload.user, token:action.payload.token, language: 'EN'}
         default:
             return state
     }

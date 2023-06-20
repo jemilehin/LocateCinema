@@ -15,8 +15,7 @@ const instance = axios.create({
 instance.interceptors.request.use(async config => {
   const location = await AsyncStorage.getItem('geolocation')
   const territory = await AsyncStorage.getItem('country_short')
-  let parseLocation = JSON.parse(location)
-
+  let parseLocation = location !== null ? JSON.parse(location) : {coords:{latitude: -22.0,longitude: +14.0}}
   const production = {
   'client':CLIENT,
   'x-api-key': X_API_KEY,
@@ -30,9 +29,10 @@ const dev = {
   'x-api-key':	'snnjkqWVwr45JwJXqtFuo7yOKUtzgin43Fv7Xyo9',
   'authorization':	'Basic SE9MQV8wX1hYOjVYWGRvTVMxR1RlWg==',
   'territory':	'XX',
-  'geolocation':	-22.0+';'+14.0,
+  // 'geolocation':	 -22.0+';'+14.0,
+  'geolocation':  parseLocation.coords.latitude+';'+parseLocation.coords.longitude
 }
-  config.headers = {...production,
+  config.headers = {...dev,
       'api-version':API_VERSION,
       'device-datetime':deviceTime,
   }

@@ -60,7 +60,7 @@ const LoginScreen = ({navigation}) => {
 
     const errcallback = (err) => {
         // console.log('login err:',err.response)
-        alert(JSON.stringify(err.response))
+        // alert(JSON.stringify(err.response))
         alert(err.message)
         setIsLoading(false)
     }

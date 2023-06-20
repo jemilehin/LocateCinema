@@ -19,7 +19,12 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "jem.com.cinemamovie"
+      "bundleIdentifier": "jem.com.cinemamovie",
+      "buildNumber": "3",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses location to get closest cinema within your region.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses location to get closest cinema within your region."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -27,7 +32,7 @@
         "backgroundColor": "#000000"
       },
       "package": "jem.com.cinemamovie",
-      "versionCode": 1
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"

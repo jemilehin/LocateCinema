@@ -8,6 +8,11 @@
         "buildType": "apk"
       }
     },
+    "preview3": {
+      "ios": {
+        "simulator": true
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"

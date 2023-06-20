@@ -7,7 +7,7 @@ import { LOGIN_USER } from "../ReduxEffect/actionTypes";
 
 export const AppRequestCall =  (endpoint,request,callback,errcallback,dispatch,type) => {
 
-    apiInstance[type](endpoint,type === 'get' ? null : request)
+    apiInstance[type](endpoint,type === 'get' || type === 'delete' ? null : request)
     .then(response => response.data)
     .then(async (data) => {
         if(endpoint === 'login'){

@@ -131,12 +131,6 @@ export default function App() {
   const [foreground, requestForeground] = Location.useForegroundPermissions();
 
   const getLocationPermission = async() => {
-    // let {status} = await Location.requestForegroundPermissionsAsync()
-    // console.log(status)
-    // if(status === 'denied'){
-    //   await Location.requestForegroundPermissionsAsync()
-    // }
-
     requestForeground().then(p => !p.granted && Linking.openSettings())
     requestLocationPermision()
   }
@@ -148,42 +142,37 @@ export default function App() {
           //title
           'Hello',
           //body
-          "You won't be able to get movies available from the cloud.\
-          Give permission to get accesss to movies showing in cinema around you.\
-          would you like to give permission?",
+          "Permission to access location was denied?",
           
-          [
-            { text: 'Yes', onPress: () => getLocationPermission() },
-            {
-              text: 'No',
-              onPress: () => console.log('No Pressed'),
-              style: 'cancel',
-            },
-          ],
+          // [
+          //   { text: 'Yes', onPress: () => getLocationPermission() },
+          //   {
+          //     text: 'No',
+          //     onPress: () => console.log('No Pressed'),
+          //     style: 'cancel',
+          //   },
+          // ],
           { cancelable: false }
           //clicking out side of alert will not cancel
         );
-      }else{
-        try{
+      }
+
           let location = await Location.getCurrentPositionAsync({});
           setLocation(location);
-        }catch(e){
-          console.log('Error while trying to get location: ', e);
-        }
-      }
+      // }
   }
 
-  const checkLocationStatusIsEnabled = async () => {
-    let locationStatus = await Location.hasServicesEnabledAsync()
-    if(!locationStatus){
-      requestLocationPermision()
-    }else{
-      getLocationPermission()
-    }
-  }
+  // const checkLocationStatusIsEnabled = async () => {
+  //   let locationStatus = await Location.hasServicesEnabledAsync()
+  //   if(!locationStatus){
+  //     requestLocationPermision()
+  //   }else{
+  //     getLocationPermission()
+  //   }
+  // }
 
   useEffect(() => {
-    checkLocationStatusIsEnabled()
+    requestLocationPermision()
   }, []);
 
   // METHOD TO STORE GEOLOCATION OF DEVICE AFTER PERMISSION IS GRANTED
