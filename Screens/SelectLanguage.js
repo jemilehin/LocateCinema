@@ -31,7 +31,7 @@ const SelectLanguageScreen = ({ navigation }) => {
 
     const ConfirmLanguage = () => {
         setModal(false)
-        console.log(selectedLanguage)
+        // console.log(selectedLanguage)
         dispatch({type: CHANGE_LANAGUGAGE, payload: {language: selectedLanguage}})
     }
 

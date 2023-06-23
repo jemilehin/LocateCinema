@@ -153,7 +153,7 @@ const SettingsScreen = ({ navigation }) => {
                 <TextView
                     size="sm"
                     weight='xs'
-                    text={i18n.t('Request for account deletion contact:')}
+                    text={i18n.t("Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data")}
                     style={tw`text-center`}
                 />
                 <TextView

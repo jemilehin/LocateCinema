@@ -61,7 +61,7 @@ export const de = {
     " minutes": "minuten",
     "About Movie": "Over film",
     "Latest Movies": "Neueste Filme",
-    "Request for account deletion contact:": "Kontakt zur Anfrage zur Kontolöschung",
+    "Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data": "Fordern Sie die Löschung Ihres Kontos an, indem Sie die E-Mail-Adresse, mit der Sie das Konto erstellt haben, an die E-Mail-Adresse unseres technischen Supports senden. Innerhalb von 24 Stunden wird Ihr Konto aus unseren Daten gelöscht",
     "Delete Account": "Konto löschen",
     "Are you sure you want to delete account?": "Sind Sie sicher, dass Sie das Konto löschen möchten?",
     "Proceed": "Fortfahren"
@@ -131,7 +131,7 @@ export const en = {
         " minutes": "minutes",
         "About Movie": "About Movie",
         "Latest Movies": "Latest Movies",
-        "Request for account deletion contact:": "Request for account deletion contact",
+        "Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data": "Request for account deletion by sending the email used to create the account to our technical support email.Within 24 hours your account will be deleted from our data:",
         "Delete Account": "Delete Account",
         "Are you sure you want to delete account?": "Are you sure you want to delete account?",
         "Proceed": "Proceed"
@@ -201,7 +201,7 @@ export const fr = {
         " minutes": "minutes",
         "About Movie": "À propos du film",
         "Latest Movies": "Derniers films",
-        "Request for account deletion contact:": "Solicitud de contacto de eliminación de cuenta",
+        "Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data": "Demande de suppression de compte en envoyant l'e-mail utilisé pour créer le compte à notre e-mail de support technique. Dans les 24 heures, votre compte sera supprimé de nos données",
         "Delete Account": "Supprimer le compte",
         "Are you sure you want to delete account?": "Êtes-vous sûr de vouloir supprimer le compte?",
         "Proceed": "Procéder"
@@ -271,7 +271,7 @@ export const es = {
         " minutes": "minutos",
         "About Movie": "Acerca de la película",
         "Latest Movies": "Últimas películas",
-        "Request for account deletion contact:": "Solicitud de contacto de eliminación de cuenta",
+        "Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data": "Solicite la eliminación de la cuenta enviando el correo electrónico utilizado para crear la cuenta a nuestro correo electrónico de soporte técnico. Dentro de las 24 horas su cuenta será eliminada de nuestros datos",
         "Delete Account": "Borrar cuenta",
         "Are you sure you want to delete account?": "Estás seguro de que quieres eliminar la cuenta?",
         "Proceed": "Proceder"
@@ -341,7 +341,7 @@ export const ind = {
         " minutes": "menit",
         "About Movie": "Tentang film",
         "Latest Movies": "Film Terbaru",
-        "Request for account deletion contact:": "Permintaan kontak penghapusan akun",
+        "Request for account deletion by sending the email used to create the account to our technical support email Within 24 hours your account will be deleted from our data": "Permintaan penghapusan akun dengan mengirimkan email yang digunakan untuk membuat akun ke email dukungan teknis kami. Dalam waktu 24 jam akun Anda akan dihapus dari data kami",
         "Delete Account": "Hapus akun",
         "Are you sure you want to delete account?": "Apakah Anda yakin ingin menghapus akun?",
         "Proceed": "Melanjutkan"
